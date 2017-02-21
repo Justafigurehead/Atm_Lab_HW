@@ -16,7 +16,16 @@ public class Atm{
     return this.reserve;
   }
 
-  public void withdraw(int requestedAmount){
+  public boolean withdraw(int requestedAmount){
+    if (requestedAmount > this.reserve){
+      return false;
+     }
     this.reserve -= requestedAmount;
+    return true;
+  }
+
+
+  public void fillUp(int value){
+    this.reserve += value;
   }
 }

@@ -5,9 +5,15 @@ import AtmLab.*;
 
 public class UserTest{
 
+  User user;
+  User john;
+  Atm atm;
+
   @Before
   public void before(){
-
+    user = new User("Michaela", "Strachan", 20);
+    atm = new Atm(350, "Glasgow");
+    john = new User ("John", "Doe", 0);
   }
 
   // Basic MVP methods for user
@@ -18,23 +24,31 @@ public class UserTest{
   }
 
   @Test 
-  public void withdrawMoneyFromATMAndAddToWallet(){
-    user.withdraw(30);
-    assertEquals(30, user.getWalletTotal());
+  public void getUserName(){
+    assertEquals("Michaela Strachan", user.getFullName());
   }
 
   @Test 
-  public void getUserName(){
+  public void changeWalletBalance(){
+    user.addToWallet(10);
+    assertEquals(30,user.getWalletTotal());
+  }
 
+
+  @Test 
+  public void withdrawMoneyFromATMAndAddToWallet(){
+    user.withdraw(30, atm);
+    assertEquals(50, user.getWalletTotal());
+    assertEquals(320, atm.getReserve());
   }
 
   @Test
   public void userTriesToWithdrawMoreThanReserveMaxLimit(){
-    
+    assertEquals("This service is currently unavailable.", user.withdraw(400, atm));
   }
 
   @Test 
-  public void userTriesToWithdrawMoreThanWhatsLeft(){
-
+  public void userTriesToWithdrawMoreThanWhatsLeftInReserve(){
+    assertEquals("This service is currently unavailable.", user.withdraw(360, atm));
   }
 }
