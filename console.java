@@ -8,8 +8,8 @@ public class Console{
   public void start(){
     System.out.println("Please enter your pin below... ");
     sc = new Scanner(System.in);
-    int pinAttempt = sc.nextLine();
-    
+    // String pinAttempt = sc.nextLine();
+    // int pinAttempt = (int) pinAttempt;
   }
   
 }
