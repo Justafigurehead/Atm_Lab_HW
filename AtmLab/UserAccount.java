@@ -25,7 +25,7 @@ public class UserAccount{
     this.balance += value;
   }
 
-  public String hidePin(){
-    
-  }
+  // public String hidePin(){
+  
+  // }
 }

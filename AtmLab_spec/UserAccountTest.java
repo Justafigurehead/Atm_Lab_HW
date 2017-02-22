@@ -29,9 +29,9 @@ public class UserAccountTest{
     assertEquals(true, userAccount.getPin(pin));
   }
 
-  @Test
-  public void hidePin(){
-    int pin = 1234;
-    assertEquals("****", userAccount.hidePin(pin));
-  }
+  // @Test
+  // public void hidePin(){
+  //   int pin = 1234;
+  //   assertEquals("****", userAccount.hidePin(pin));
+  // }
 }
